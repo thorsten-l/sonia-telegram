@@ -17,10 +17,7 @@ public class Options
   /**
    * Field description
    */
-  @Option(
-    name = "--help",
-    usage = "Displays this help"
-  )
+  @Option(name = "--help", usage = "Displays this help")
   @Getter
   @Setter
   private boolean displayHelp = false;
@@ -28,10 +25,7 @@ public class Options
   /**
    * Field description
    */
-  @Option(
-    name = "--version",
-    usage = "Display programm version"
-  )
+  @Option(name = "--version", usage = "Display programm version")
   @Getter
   @Setter
   private boolean displayVersion = false;
@@ -47,6 +41,18 @@ public class Options
   @Getter
   @Setter
   private boolean verbose = false;
+
+  /**
+   * Field description
+   */
+  @Option(
+    name = "--debug",
+    aliases = "-d",
+    usage = "Debugging infos enabled"
+  )
+  @Getter
+  @Setter
+  private boolean debug = false;
 
   /**
    * Field description

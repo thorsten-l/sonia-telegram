@@ -64,9 +64,11 @@ public class App
         LOGGER.debug("Chat name = " + OPTIONS.getChatName());
         LOGGER.debug("Chat Id = " + OPTIONS.getChatId());
         LOGGER.debug("Verbose = " + OPTIONS.isVerbose());
+        LOGGER.debug("Debugging enabled = " + OPTIONS.isDebug());
         LOGGER.debug("Message text = " + OPTIONS.getText());
 
-        try (TelegramClient client = new TelegramClient(OPTIONS.getToken()))
+        try (TelegramClient client = new TelegramClient(OPTIONS.getToken(),
+          OPTIONS.isDebug()))
         {
           TelegramChat chat;
 
@@ -82,8 +84,8 @@ public class App
           TelegramMessage message = new TelegramMessage(chat,
             OPTIONS.getText());
 
-          LOGGER.debug("sending messge = " + message );
-          
+          LOGGER.debug("sending messge = " + message);
+
           TelegramMessageResult result = client.send(message);
 
           if (OPTIONS.isVerbose())
