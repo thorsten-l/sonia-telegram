@@ -9,7 +9,7 @@ a very simple Telegram client
  --chat-name (-n) VAL : Chat name
  --help               : Displays this help (default: false)
  --text (-t) VAL      : Message text to send
- --verbose (-v)       : Display programm version (default: false)
+ --verbose (-v)       : Display server result (default: false)
  --version            : Display programm version (default: false)
  ```
  

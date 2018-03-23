@@ -42,7 +42,7 @@ public class Options
   @Option(
     name = "--verbose",
     aliases = "-v",
-    usage = "Display programm version"
+    usage = "Display server result"
   )
   @Getter
   @Setter
