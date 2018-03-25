@@ -48,6 +48,17 @@
   <build>
     <finalName>sonia-telegram</finalName>
 
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+      </resource>
+      <resource>
+        <directory>src/main/config</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>  
+
     <plugins>
 
       <plugin>
@@ -104,7 +115,7 @@
           <programs>
             <program>
               <mainClass>sonia.telegram.App</mainClass>
-              <name>app</name>
+              <id>app</id>
             </program>
           </programs>
         </configuration>
@@ -142,6 +153,8 @@
     
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+    <build.timestamp>${maven.build.timestamp}</build.timestamp>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>

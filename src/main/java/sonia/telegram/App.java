@@ -14,6 +14,12 @@ import sonia.telegram.client.TelegramClient;
 import sonia.telegram.client.TelegramMessage;
 import sonia.telegram.client.TelegramMessageResult;
 
+//~--- JDK imports ------------------------------------------------------------
+
+import java.io.IOException;
+
+import java.util.Properties;
+
 /**
  *
  * @author th
@@ -56,7 +62,32 @@ public class App
       }
       else if (OPTIONS.isDisplayVersion())
       {
-        System.out.println("Version 0.1");
+
+        Properties buildProperties = new Properties();
+
+        try
+        {
+          buildProperties.load(App.class.getResourceAsStream(
+            "/build.properties"));
+          System.out.println("\nProject:");
+          System.out.println("  name = " + buildProperties.getProperty(
+            "build.project.name"));
+          System.out.println("  version = " + buildProperties.getProperty(
+            "build.project.version"));
+          System.out.println("  build time = " + buildProperties.getProperty(
+            "build.timestamp"));
+
+          System.out.println("\nCompiler:");
+          System.out.println("  java.version = " + buildProperties.getProperty(
+            "build.java.version"));
+          System.out.println("  java.vendor = " + buildProperties.getProperty(
+            "build.java.vendor"));
+        }
+        catch (IOException ex)
+        {
+          LOGGER.error("Can not load build.properties file.", ex);
+        }
+
       }
       else
       {
